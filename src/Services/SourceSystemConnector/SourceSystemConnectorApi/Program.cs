@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Core;
 using Azure.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace SourceSystemConnectorApi
 {
@@ -30,7 +30,7 @@ namespace SourceSystemConnectorApi
                     var valtName = buildConfig["AzureKeyVaultUrl"];
                     var keyVaultClient = new KeyVaultClient(async (authority, resource, scope) => {
                         var credentials = new DefaultAzureCredential(false);
-                        var token = credentials.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://vault.azure.net/.default" }));
+                        var token = credentials.GetToken(new TokenRequestContext(new[] { "https://vault.azure.net/.default" }));
                         return token.Token;
                     });
                     cfg.AddAzureKeyVault(valtName, keyVaultClient, new DefaultKeyVaultSecretManager());

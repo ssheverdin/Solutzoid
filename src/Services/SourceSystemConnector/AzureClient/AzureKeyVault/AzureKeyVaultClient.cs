@@ -3,10 +3,10 @@ using Azure.Security.KeyVault.Secrets;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace SourceSystemConnectorApi.Azure
+namespace AzureClient.AzureKeyVault
 {
     public class AzureKeyVaultClient : IAzureKeyVaultClient
     {
@@ -26,13 +26,23 @@ namespace SourceSystemConnectorApi.Azure
 
         public async Task<string> GetSecretValue(string key)
         {
-            var secret = await GetSecretClient().GetSecretAsync("key");
-            return secret.Value.Value;
+            try
+            {
+                var secret = await GetSecretClient().GetSecretAsync(key);
+                return secret.Value.Value;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return null;
+
         }
 
         public async Task SetSecretValue(string key, string value)
         {
-            var secret = new KeyVaultSecret("key", "value");
+            var secret = new KeyVaultSecret(key, value);
             await GetSecretClient().SetSecretAsync(secret);
         }
     }

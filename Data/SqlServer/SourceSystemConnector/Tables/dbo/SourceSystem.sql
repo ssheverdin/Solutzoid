@@ -5,6 +5,7 @@
 	[ConnectionName] VARCHAR(100) NOT NULL UNIQUE,
 	[Type] VARCHAR(100) NOT NULL,
 	[Description] VARCHAR(200) NULL,
+	[SyncEnabled] BIT NULL,
 	[InitialSyncDate] DATETIME2 NULL,
 	[LastSyncDate] DATETIME2 NULL,
 
