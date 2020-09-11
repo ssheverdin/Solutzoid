@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Packages\AzureClient\AzureClient.csproj" />
     <ProjectReference Include="..\AzureClient\AzureClient.csproj" />
     <ProjectReference Include="..\MetadataUtility\MetadataUtility.csproj" />
     <ProjectReference Include="..\SourceSystemConnectorContracts\SourceSystemConnectorContracts.csproj" />

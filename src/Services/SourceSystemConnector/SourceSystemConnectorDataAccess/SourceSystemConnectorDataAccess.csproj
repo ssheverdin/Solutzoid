@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Packages\DataUnitOfWork\DataUnitOfWork.csproj" />
     <ProjectReference Include="..\DataUnitOfWork\DataUnitOfWork.csproj" />
   </ItemGroup>
 
