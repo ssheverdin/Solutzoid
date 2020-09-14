@@ -1,0 +1,9 @@
+{
+	"name": "AureSql",
+	"properties": {
+		"folder": {
+			"name": "Migration"
+		},
+		"annotations": []
+	}
+}
