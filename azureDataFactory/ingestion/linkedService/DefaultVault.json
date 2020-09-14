@@ -1,0 +1,10 @@
+{
+	"name": "DefaultVault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://slavik-sandbox-vault.vault.azure.net/"
+		}
+	}
+}
